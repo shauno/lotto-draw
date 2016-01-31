@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 /**
  * Class AbstractDrawLottoServiceTest
@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
  */
 class AbstractDrawLottoServiceTest extends TestCase
 {
-    use DatabaseTransactions;
+    use DatabaseMigrations;
 
     protected $drawService;
 
