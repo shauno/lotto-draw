@@ -46,8 +46,6 @@ function play(game) {
 
 }
 
-
-
 jQuery(document).ready(function() {
 
     jQuery('#play-button').click(function(e) {
