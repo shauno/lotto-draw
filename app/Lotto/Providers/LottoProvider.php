@@ -26,5 +26,10 @@ class LottoProvider extends ServiceProvider
         $this->app->when('\Lotto\Services\DrawMainService')
             ->needs('Lotto\Interfaces\LottoGameRepositoryInterface')
             ->give('\Lotto\Repositories\LottoGameRepository');
+
+        $this->app->when('\Lotto\Services\DrawPowerballService')
+            ->needs('Lotto\Interfaces\LottoGameRepositoryInterface')
+            ->give('\Lotto\Repositories\LottoGameRepository');
+
     }
 }

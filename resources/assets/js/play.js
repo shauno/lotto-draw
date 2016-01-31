@@ -54,6 +54,7 @@ jQuery(document).ready(function() {
         e.preventDefault();
 
         play('main');
+        play('powerball');
     });
 
 });

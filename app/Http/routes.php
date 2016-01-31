@@ -5,5 +5,9 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::group(['prefix' => 'api'], function () {
+
     Route::get('/play-main', '\Lotto\Controllers\LottoController@playMain');
+
+    Route::get('/play-powerball', '\Lotto\Controllers\LottoController@playPowerball');
+
 });

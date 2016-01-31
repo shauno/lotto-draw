@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Lotto\Services\DrawMainService;
+use Lotto\Services\DrawPowerballService;
 
 class LottoController extends Controller
 {
@@ -17,4 +18,13 @@ class LottoController extends Controller
 
         return $drawService->draw();
     }
+
+    public function playPowerball(DrawPowerballService $drawService)
+    {
+        $drawService->setTotalBallCount(env('LOTTO_POWERBALL_TOTAL'));
+        $drawService->setGameBallCount(env('LOTTO_POWERBALL_GAME'));
+
+        return $drawService->draw();
+    }
+
 }
