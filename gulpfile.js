@@ -9,6 +9,8 @@ elixir(function(mix) {
 
     //Move js files
     mix.scripts([
+        '../bower/jquery/dist/jquery.js',
         '../bower/bootstrap/dist/js/bootstrap.js',
+        '../js/play.js'
     ]);
 });
