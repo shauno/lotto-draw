@@ -30,3 +30,7 @@ Run Tests
 
     $ ./vendor/bin/phpunit
     
+Why?
+---
+
+[See the orignal brief](brief.md)
