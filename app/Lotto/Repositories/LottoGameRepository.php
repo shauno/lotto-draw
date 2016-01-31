@@ -45,6 +45,10 @@ class LottoGameRepository implements LottoGameRepositoryInterface
 
     /*
      * Makes sure only the last $limit records of $type are kept in persistence
+     *
+     * Only persisting N records is not a pattern I have come across before. I have moved records off to a history or
+     * cache db or table on a cron, but not tried to limit the rows in real time. There seems to be a issue with a
+     * "Deadlock" form time to time with this query that I don't quite understand yet
      */
     public function cleanOldRecords($type, $limit)
     {
