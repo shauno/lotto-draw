@@ -2,6 +2,8 @@
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/', [ 'uses' => '\Lotto\Controllers\PageController@homepage' ]);
+
+    Route::get('/export-csv', [ 'uses' => '\Lotto\Controllers\ExportController@csv' ]);
 });
 
 Route::group(['prefix' => 'api'], function () {

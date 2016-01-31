@@ -3,9 +3,14 @@
 @section('content')
 
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <button type="button" class="btn btn-primary btn-lg" id="play-button">Play</button>
         </div>
+
+        <div class="col-lg-6 text-right">
+            <a href="/export-csv" class="btn btn-info btn-lg">Export</a>
+        </div>
+
     </div>
 
     <div class="row">

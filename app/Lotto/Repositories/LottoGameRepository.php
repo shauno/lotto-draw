@@ -70,4 +70,9 @@ class LottoGameRepository implements LottoGameRepositoryInterface
             ]
         );
     }
+
+    public function getAll()
+    {
+        return $this->model->all()->load('numbers');
+    }
 }
