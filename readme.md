@@ -25,6 +25,7 @@ Setup
 * Run the build process
 
         $ ./node_modules/.bin/gulp
+
 Run Tests
 ---
 
