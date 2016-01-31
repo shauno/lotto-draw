@@ -4,7 +4,8 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     //Move css files
     mix.styles([
-        '../bower/bootstrap/dist/css/bootstrap.css'
+        '../bower/bootstrap/dist/css/bootstrap.css',
+        '../css/style.css'
     ]);
 
     //Move js files
