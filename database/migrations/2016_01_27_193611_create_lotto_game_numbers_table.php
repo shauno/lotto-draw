@@ -15,7 +15,7 @@ class CreateLottoGameNumbersTable extends Migration
         Schema::create('lotto_game_numbers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('lotto_games_id')->unsigned();
-            $table->foreign('lotto_games_id')->references('id')->on('lotto_games');
+            $table->foreign('lotto_games_id')->references('id')->on('lotto_games')->onDelete('cascade');
             $table->integer('number');
             $table->timestamps();
         });

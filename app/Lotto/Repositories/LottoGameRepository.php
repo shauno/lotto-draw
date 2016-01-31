@@ -38,6 +38,32 @@ class LottoGameRepository implements LottoGameRepositoryInterface
             $this->model->numbers()->saveMany($numberModels);
         });
 
+        $this->cleanOldRecords($reflect->getShortName(), 100);
+
         return $this->model->load('numbers');
+    }
+
+    /*
+     * Makes sure only the last $limit records of $type are kept in persistence
+     */
+    public function cleanOldRecords($type, $limit)
+    {
+        $this->db->select(
+            $this->db->raw('DELETE FROM `lotto_games`
+                WHERE type = :type1 AND id NOT IN (
+	                SELECT * FROM (
+		                SELECT id FROM `lotto_games`
+		                WHERE `type` = :type2
+		                ORDER BY id DESC
+		                LIMIT :limit
+	                ) AS t
+                )
+            '),
+            [
+                'type1' => $type,
+                'type2' => $type,
+                'limit' => $limit,
+            ]
+        );
     }
 }
