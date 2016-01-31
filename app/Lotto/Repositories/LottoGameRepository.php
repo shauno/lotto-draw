@@ -45,30 +45,21 @@ class LottoGameRepository implements LottoGameRepositoryInterface
 
     /*
      * Makes sure only the last $limit records of $type are kept in persistence
-     *
-     * Only persisting N records is not a pattern I have come across before. I have moved records off to a history or
-     * cache db or table on a cron, but not tried to limit the rows in real time. There seems to be a issue with a
-     * "Deadlock" form time to time with this query that I don't quite understand yet
      */
     public function cleanOldRecords($type, $limit)
     {
-        $this->db->select(
-            $this->db->raw('DELETE FROM `lotto_games`
-                WHERE type = :type1 AND id NOT IN (
-	                SELECT * FROM (
-		                SELECT id FROM `lotto_games`
-		                WHERE `type` = :type2
-		                ORDER BY id DESC
-		                LIMIT :limit
-	                ) AS t
-                )
-            '),
-            [
-                'type1' => $type,
-                'type2' => $type,
-                'limit' => $limit,
-            ]
-        );
+
+        $delete = $this->model->newInstance();
+        $id = $delete->where('type', '=', $type)
+            ->orderBy('id', 'DESC')
+            ->limit($limit)
+            ->get()
+            ->last();
+
+        $delete = $this->model->newInstance();
+        $delete->where('id', '<', $id->id)
+            ->where('type', '=', $type)
+            ->delete();
     }
 
     public function getAll()
