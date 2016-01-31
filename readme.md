@@ -28,8 +28,8 @@ Setup
 Run Tests
 ---
 
-    $ ./vendor/bin/phpunit
-    
+`$ ./vendor/bin/phpunit`
+
 Why?
 ---
 
