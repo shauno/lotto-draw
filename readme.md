@@ -1,6 +1,8 @@
 Lotto game generator
 ===
 
+[![Build Status](https://travis-ci.org/shauno/lotto-draw.svg?branch=master)](https://travis-ci.org/shauno/lotto-draw)
+
 Setup
 ---
 
