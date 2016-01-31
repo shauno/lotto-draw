@@ -14,6 +14,17 @@ Setup
 
         $ php artisan migrate
 
+* Download and install build dependencies (please note, this includes Laravel's custom build tool Elixir which is huge. This command might take a long time to complete depending on your internet connection
+
+        $ npm install
+
+* Download and install front end dependencies
+
+        $ ./node_modules/.bin/bower install
+
+* Run the build process
+
+        $ ./node_modules/.bin/gulp
 Run Tests
 ---
 
