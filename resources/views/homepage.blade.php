@@ -12,6 +12,8 @@
         <div class="col-lg-6">
             <h3>Main Game Results</h3>
 
+            <div class="alert alert-danger hidden" role="alert" id="main-error"></div>
+
             <ul class="list-group" id="main-list">
             </ul>
         </div>

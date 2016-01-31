@@ -37,7 +37,14 @@ jQuery(document).ready(function() {
                 jQuery('#main-list li:gt(9)').remove();
             },
             error: function() {
-                alert('There was a problem getting the results');
+                jQuery('#main-error')
+                    .text('There was a problem getting the numbers')
+                    .fadeIn()
+                    .removeClass('hidden');
+
+                setTimeout(function() {
+                    jQuery('#main-error').fadeOut();
+                }, 5000);
             }
         });
     });
